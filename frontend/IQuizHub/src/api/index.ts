@@ -377,7 +377,7 @@ export default {
 		})).data
 	},
 
-	getGroupDetail: async function (params: { page:string ,usergroup_id: string }) {
+	getGroupDetail: async function (params: { page: string, usergroup_id: string }) {
 		return (await api.get(`api/question/usergroup/detail/${params.usergroup_id}/?page=${params.page}`, {
 			headers: {
 				'Content-Type': 'application/json',
@@ -466,17 +466,17 @@ export default {
 	addQuestionToGroup: async function (questionId: string, id: string) {
 		console.log(questionId)
 		return await api.post(`api/question/questiongroup/addquestion/${id}/`, {
-			"questions": questionId
+			"questions": [questionId]
 		}, {
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('token')}`,
-				'Content-Type': 'multipart/form-data',
+				'Content-Type': 'application/json',
 			},
 		})
 
 	},
 
-		getHistory: async function (params: { id: string }) {
+	getHistory: async function (params: { id: string }) {
 		return (await api.get(`users/history/${params.id}/`, {
 			headers: {
 				'Content-Type': 'application/json',

@@ -83,18 +83,9 @@ const uploadAvatar = async (params: { file: File }) => {
         });
         if (res.status === 200) {
             ElMessage.success('upload successfully');
-            console.log('res.data->', res.data)
-            console.log('res.data.url->', res.data.url)
             // 刷新头像
-            profile.updateProfile({
-                avatar: res.data.url,
-                username: profile.username,
-                id: profile.id,
-                mobile: profile.mobile,
-                email: profile.email,
-                introduction: profile.introduction
-            });
-            router.push('userCenter')
+            profile.updateProfile({avatar: res.data.avatar})
+            await router.push('/userCenter')
         } else {
             ElMessage.error('upload failed');
         }

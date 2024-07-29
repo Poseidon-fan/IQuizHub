@@ -25,6 +25,7 @@ import {onBeforeMount, ref} from 'vue';
 import api from "@/api";
 import {useProfileStore} from "@/stores/profile";
 import env from "@/utils/env";
+import router from "@/router";
 
 const profile = useProfileStore()
 const documents = ref<any[]>([]);
@@ -39,7 +40,7 @@ onBeforeMount(async () => {
 
 
 const navigateToLink = (id: number) => {
-    window.location.href = `/question-sheet/${id}`;
+    router.push(`/sheet-detail/${id}`)
 };
 </script>
 

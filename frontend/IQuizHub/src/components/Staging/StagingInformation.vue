@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
 import {useProfileStore} from '@/stores/profile'
 
 const profile = useProfileStore()
@@ -54,6 +54,10 @@ for (let i = 0; i < history.length; i++) {
         wrongCnt.value++;
     }
 }
+
+onMounted(() => {
+    console.log(avatar.value)
+})
 
 </script>
 

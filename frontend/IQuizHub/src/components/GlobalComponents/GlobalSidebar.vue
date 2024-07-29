@@ -29,7 +29,7 @@
             <el-icon>
                 <icon-menu/>
             </el-icon>
-            <template #title>Question Sheet Square</template>
+            <template #title>Question List Square</template>
         </el-menu-item>
         <el-menu-item index="/questionBank">
             <el-icon>
